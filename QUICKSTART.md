@@ -150,8 +150,8 @@ jobs:
       # Check traffic light status
       - name: Check Deployment Status
         run: |
-          STATUS=$(./blackroad-traffic-light.sh status | grep "Status:" | awk '{print $2}')
-          if [ "$STATUS" == "🔴" ]; then
+          STATUS=$(./blackroad-traffic-light.sh status | grep "Status:" | awk '{print $3}')
+          if [ "$STATUS" == "REDLIGHT" ]; then
             echo "Deployment blocked by RedLight"
             exit 1
           fi
@@ -173,14 +173,14 @@ jobs:
 # check-deploy.sh
 
 # Get traffic light status
-STATUS=$(./blackroad-traffic-light.sh status | grep "Status:" | awk '{print $2}')
+STATUS=$(./blackroad-traffic-light.sh status | grep "Status:" | awk '{print $3}')
 
 case $STATUS in
-  "🟢")
+  "GREENLIGHT")
     echo "✓ GreenLight - Deploying..."
     ./deploy.sh
     ;;
-  "🟡")
+  "YELLOWLIGHT")
     echo "⚠ YellowLight - Review required"
     read -p "Continue anyway? (y/N) " -n 1 -r
     echo
@@ -188,7 +188,7 @@ case $STATUS in
       ./deploy.sh
     fi
     ;;
-  "🔴")
+  "REDLIGHT")
     echo "✗ RedLight - Deployment BLOCKED"
     exit 1
     ;;

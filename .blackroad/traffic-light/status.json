@@ -1,7 +1,7 @@
 {
-  "status": "GREENLIGHT",
-  "message": "All systems operational!",
-  "timestamp": "2025-12-25T07:30:59Z",
+  "status": "YELLOWLIGHT",
+  "message": "Testing jq fix",
+  "timestamp": "2025-12-25T07:38:56Z",
   "history": [
     {
       "from": "YELLOWLIGHT",
@@ -14,6 +14,24 @@
       "to": "GREENLIGHT",
       "message": "All systems operational!",
       "timestamp": "2025-12-25T07:30:59Z"
+    },
+    {
+      "from": "GREENLIGHT",
+      "to": "YELLOWLIGHT",
+      "message": "Testing system",
+      "timestamp": "2025-12-25T07:36:01Z"
+    },
+    {
+      "from": "YELLOWLIGHT",
+      "to": "GREENLIGHT",
+      "message": "All systems go!",
+      "timestamp": "2025-12-25T07:36:01Z"
+    },
+    {
+      "from": "GREENLIGHT",
+      "to": "YELLOWLIGHT",
+      "message": "Testing jq fix",
+      "timestamp": "2025-12-25T07:38:56Z"
     }
   ]
 }

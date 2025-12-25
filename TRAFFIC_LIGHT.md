@@ -172,14 +172,14 @@ fi
 
 ```bash
 # Check status before deployment
-STATUS=$(./blackroad-traffic-light.sh status | grep "Status:" | awk '{print $2}')
+STATUS=$(./blackroad-traffic-light.sh status | grep "Status:" | awk '{print $3}')
 
-if [ "$STATUS" == "🔴" ]; then
+if [ "$STATUS" == "REDLIGHT" ]; then
   echo "Deployment blocked by RedLight status"
   exit 1
 fi
 
-if [ "$STATUS" == "🟡" ]; then
+if [ "$STATUS" == "YELLOWLIGHT" ]; then
   echo "Warning: YellowLight - proceed with caution"
 fi
 

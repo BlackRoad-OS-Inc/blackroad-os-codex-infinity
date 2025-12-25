@@ -100,9 +100,6 @@ set_status() {
     # Get old status for history
     local old_status=$(get_status 2>/dev/null || echo "UNKNOWN")
     
-    # Create history entry
-    local history_entry="{\"from\": \"$old_status\", \"to\": \"$new_status\", \"message\": \"$message\", \"timestamp\": \"$(date -u +"%Y-%m-%dT%H:%M:%SZ")\"}"
-    
     # Update status file
     if command -v jq &> /dev/null; then
         # Use jq for proper JSON manipulation
@@ -110,8 +107,8 @@ set_status() {
         jq --arg status "$new_status" \
            --arg message "$message" \
            --arg timestamp "$(date -u +"%Y-%m-%dT%H:%M:%SZ")" \
-           --argjson history "$history_entry" \
-           '.status = $status | .message = $message | .timestamp = $timestamp | .history += [$history]' \
+           --arg old_status "$old_status" \
+           '.status = $status | .message = $message | .timestamp = $timestamp | .history += [{"from": $old_status, "to": $status, "message": $message, "timestamp": $timestamp}]' \
            .blackroad/traffic-light/status.json > "$temp_file"
         mv "$temp_file" .blackroad/traffic-light/status.json
     else

@@ -81,10 +81,15 @@ EOF
 index_repo() {
     echo -e "${CYAN}Indexing repository...${NC}"
     
-    # Count files by type
-    local py_files=$(find . -name "*.py" -type f | wc -l)
-    local js_files=$(find . -name "*.js" -type f | wc -l)
-    local md_files=$(find . -name "*.md" -type f | wc -l)
+    # Count files by type in a single pass
+    local counts=$(find . -type f \( -name "*.py" -o -name "*.js" -o -name "*.md" \) -printf "%f\n" | awk -F. '
+        {ext = $NF}
+        ext == "py" {py++}
+        ext == "js" {js++}
+        ext == "md" {md++}
+        END {printf "%d %d %d", py, js, md}
+    ')
+    read py_files js_files md_files <<< "$counts"
     local total_files=$(find . -type f | wc -l)
     
     # Create index
