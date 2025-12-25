@@ -7,6 +7,20 @@
 
 ---
 
+## 🚀 Quick Start
+
+**New here?** Check out the **[Quick Start Guide](QUICKSTART.md)** to get up and running in minutes!
+
+```bash
+# One-command setup
+./setup.sh
+
+# Verify installation
+./verify.sh
+```
+
+---
+
 ## 🚦 Traffic Light System
 
 BlackRoad Codex Infinity now includes the **GreenLight/YellowLight/RedLight** deployment gate system for managing deployments and approvals.
@@ -125,6 +139,8 @@ Access at `http://localhost:5000`
 
 ## 🔧 Scripts
 
+- `setup.sh` - **One-command setup** for entire system
+- `verify.sh` - **Verification script** to test installation
 - `blackroad-traffic-light.sh` - Traffic light deployment gate system
 - `blackroad-codex-integration.sh` - Codex system integration
 - `run.sh` - Application launcher
@@ -135,9 +151,12 @@ Access at `http://localhost:5000`
 
 ## 📚 Documentation
 
-- [ALICE.md](ALICE.md) - Alice agent documentation
-- `.aria/README.md` - Aria agent documentation
-- `.blackroad/agent-config.yml` - Agent configuration
+- **[QUICKSTART.md](QUICKSTART.md)** - 🚀 Get started in minutes
+- **[TRAFFIC_LIGHT.md](TRAFFIC_LIGHT.md)** - 🚦 Complete traffic light system guide
+- **[CODEX.md](CODEX.md)** - 🧠 BlackRoad Codex integration documentation
+- **[AGENTS.md](AGENTS.md)** - 🤖 AI agent team manifest and capabilities
+- **[ALICE.md](ALICE.md)** - 🌌 Alice agent documentation
+- **[.aria/README.md](.aria/README.md)** - 🎵 Aria agent documentation
 
 ---
 

@@ -75,6 +75,8 @@ test_component "PR Template" "[ -f .github/PULL_REQUEST_TEMPLATE/pull_request_te
 # Test documentation files
 test_component "Traffic Light Documentation" "[ -f TRAFFIC_LIGHT.md ]"
 test_component "Codex Documentation" "[ -f CODEX.md ]"
+test_component "Quick Start Guide" "[ -f QUICKSTART.md ]"
+test_component "Agent Manifest" "[ -f AGENTS.md ]"
 test_component "Updated README" "grep -q 'Traffic Light System' README.md"
 
 # Test traffic light command execution
