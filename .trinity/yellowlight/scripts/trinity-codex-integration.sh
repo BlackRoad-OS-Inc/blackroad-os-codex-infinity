@@ -203,11 +203,13 @@ chmod +x "$HOME/trinity-record-test.sh"
 
 echo "✅ Created Trinity test recorder: ~/trinity-record-test.sh"
 
-# Update memory
-source ~/memory-greenlight-templates.sh
-gl_phase_done "integration" "Trinity Codex Integration" \
-    "Integrated Light Trinity standards into BlackRoad Codex: 3 new tables (trinity_standards, trinity_compliance, trinity_test_results), 16 standards defined (6 RedLight, 6 YellowLight, 5 GreenLight), 2 compliance tools created (~/trinity-check-compliance.sh, ~/trinity-record-test.sh). All future work validated against Trinity gates via Codex." \
-    "🌌"
+# Update memory (if available)
+if [ -f ".trinity/greenlight/scripts/memory-greenlight-templates.sh" ]; then
+    source .trinity/greenlight/scripts/memory-greenlight-templates.sh
+    gl_phase_done "integration" "Trinity Codex Integration" \
+        "Integrated Light Trinity standards into BlackRoad Codex: 3 new tables (trinity_standards, trinity_compliance, trinity_test_results), 16 standards defined (6 RedLight, 6 YellowLight, 5 GreenLight), 2 compliance tools created (~/.trinity/system/trinity-check-compliance.sh, ~/.trinity/system/trinity-record-test.sh). All future work validated against Trinity gates via Codex." \
+        "🌌"
+fi
 
 echo ""
 echo "🚦 Trinity → Codex Integration Complete!"

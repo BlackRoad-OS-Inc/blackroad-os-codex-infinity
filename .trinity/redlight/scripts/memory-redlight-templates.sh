@@ -452,13 +452,17 @@ rl_create_gl_task() {
     local task_description="$2"
     local priority="${3:-📌}"
 
-    source "$HOME/memory-greenlight-templates.sh"
-
-    gl_feature \
-        "RedLight: $template_name" \
-        "$task_description" \
-        "🍖" \
-        "$priority"
+    if [ -f ".trinity/greenlight/scripts/memory-greenlight-templates.sh" ]; then
+        source ".trinity/greenlight/scripts/memory-greenlight-templates.sh"
+        
+        gl_feature \
+            "RedLight: $template_name" \
+            "$task_description" \
+            "🍖" \
+            "$priority"
+    else
+        echo "⚠️  GreenLight integration not available"
+    fi
 }
 
 # Helper: Update GreenLight on deployment
@@ -467,14 +471,18 @@ rl_notify_gl_deploy() {
     local url="$2"
     local platform="${3:-cloudflare}"
 
-    source "$HOME/memory-greenlight-templates.sh"
-
-    gl_deploy \
-        "$template_name" \
-        "$url" \
-        "RedLight template deployed via $platform" \
-        "👉" \
-        "🎨"
+    if [ -f ".trinity/greenlight/scripts/memory-greenlight-templates.sh" ]; then
+        source ".trinity/greenlight/scripts/memory-greenlight-templates.sh"
+        
+        gl_deploy \
+            "$template_name" \
+            "$url" \
+            "RedLight template deployed via $platform" \
+            "👉" \
+            "🎨"
+    else
+        echo "⚠️  GreenLight integration not available"
+    fi
 }
 
 # ═══════════════════════════════════════════════════════
