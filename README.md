@@ -1,5 +1,13 @@
 # blackroad-os-codex-infinity
 
+> Infinite code indexing system. Proprietary BlackRoad OS, Inc.
+
+Part of the [BlackRoad OS](https://blackroad.io) ecosystem — [BlackRoad-OS-Inc](https://github.com/BlackRoad-OS-Inc)
+
+---
+
+# blackroad-os-codex-infinity
+
 
 
 ![blackroad](https://img.shields.io/badge/blackroad-black?style=flat-square) 
